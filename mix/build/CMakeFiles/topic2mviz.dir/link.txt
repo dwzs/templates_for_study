@@ -1,0 +1,1 @@
+/usr/bin/aarch64-linux-gnu-g++ --sysroot=/usr/local/ubuntu_crossbuild_devkit/sysroot/    -rdynamic CMakeFiles/topic2mviz.dir/topic2mviz.cpp.o  -o topic2mviz  -L/usr/local/ubuntu_crossbuild_devkit/sysroot/opt/ros/melodic/lib -Wl,-rpath,/opt/ros/melodic/lib -lroscpp -lrostime -lrosconsole -lroscpp_serialization -lvisual 

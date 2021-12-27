@@ -1,0 +1,4 @@
+/home/wsy/templates_for_study/mix/build/CMakeFiles/edit_cache.dir
+/home/wsy/templates_for_study/mix/build/CMakeFiles/_roscpp_serialization.dir
+/home/wsy/templates_for_study/mix/build/CMakeFiles/rebuild_cache.dir
+/home/wsy/templates_for_study/mix/build/CMakeFiles/topic2mviz.dir
