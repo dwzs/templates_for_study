@@ -1,0 +1,8 @@
+prefix=/home/wsy/templates_for_study/ros/catkin_ws_templete/devel
+
+Name: learning_parameter
+Description: Description of learning_parameter
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,4 @@
+/home/wsy/templates_for_study/libs/protobuf/build/CMakeFiles/rebuild_cache.dir
+/home/wsy/templates_for_study/libs/protobuf/build/CMakeFiles/proto.dir
+/home/wsy/templates_for_study/libs/protobuf/build/CMakeFiles/edit_cache.dir
+/home/wsy/templates_for_study/libs/protobuf/build/CMakeFiles/testProto.dir
