@@ -3,6 +3,7 @@
 #include <mutex>
 #include <iostream>
 #include <list>
+#include <unistd.h>
 
 using namespace std;
 
@@ -14,15 +15,31 @@ private:
     int i = 0;
 
 public:
-    void WriteList()
+    void WriteList1()
     {
         while (i < 10)
         {
-            lock_guard<mutex> guard(m); //对象创建时构造函数中调用 m.lock(), 析构函数中自动调用 m.unlock()
+            cout << "write1: " << i << endl;
+            m.lock();
             mylist.push_back(i++);
+            // sleep(5); //这里sleep会阻塞其他正在获取锁的线程
+            m.unlock();
         }
         return;
     }
+
+    void WriteList2()
+    {
+        while (i < 10)
+        {
+            cout << "write2: " << i << endl;
+            m.lock();
+            mylist.push_back(i++);
+            m.unlock();
+        }
+        return;
+    }
+
     void showList()
     {
         for (auto p = mylist.begin(); p != mylist.end(); p++)
@@ -37,11 +54,11 @@ public:
 int main()
 {
     msgList mlist;
-    thread pwrite0(&msgList::WriteList, &mlist);
-    thread pwrite1(&msgList::WriteList, &mlist);
+    thread pwrite1(&msgList::WriteList1, &mlist);
+    thread pwrite2(&msgList::WriteList2, &mlist);
 
-    pwrite0.join();
     pwrite1.join();
+    pwrite2.join();
     cout << "threads end!" << endl;
 
     mlist.showList(); //子线程结束后主线程打印list
