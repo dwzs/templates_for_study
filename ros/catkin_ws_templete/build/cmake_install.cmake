@@ -132,8 +132,10 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/wsy/templates_for_study/ros/catkin_ws_templete/build/gtest/cmake_install.cmake")
   include("/home/wsy/templates_for_study/ros/catkin_ws_templete/build/learning_launch/cmake_install.cmake")
+  include("/home/wsy/templates_for_study/ros/catkin_ws_templete/build/bridges/cmake_install.cmake")
   include("/home/wsy/templates_for_study/ros/catkin_ws_templete/build/learning_parameter/cmake_install.cmake")
   include("/home/wsy/templates_for_study/ros/catkin_ws_templete/build/multiThreadSub/cmake_install.cmake")
+  include("/home/wsy/templates_for_study/ros/catkin_ws_templete/build/tools_for_rviz/cmake_install.cmake")
   include("/home/wsy/templates_for_study/ros/catkin_ws_templete/build/learning_service/cmake_install.cmake")
   include("/home/wsy/templates_for_study/ros/catkin_ws_templete/build/learning_tf/cmake_install.cmake")
 

@@ -1,0 +1,11 @@
+<launch>
+
+  <param name="use_sim_time" value="true"/>
+
+  <!-- <node pkg="rviz" type="rviz" name="rviz" output="screen" args="-d /home/wsy/Documents/configs/apollo3.5/lgsvl_cube_apollo.rviz" required="true" /> -->
+
+  <include file="/home/wsy/catkin_worspace1/src/tools_for_rviz/launch/tfLgsvlWorldPathLidar.launch"/>
+
+  <!-- <node pkg="tools_for_rviz" type="track_display_apollo" name="track_display_apollo" required="true" /> -->
+
+</launch>

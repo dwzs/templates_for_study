@@ -1,0 +1,11 @@
+<launch>
+
+  <node pkg="tf" type="static_transform_publisher" name="tf_world2origin" args="592722.5 4134479 0 0 0 0 1 world f_origin 100" required="true" />
+
+  <!-- origin to base -->
+  <node pkg="tools_for_rviz" type="dynamic_tf_pub" name="dynamic_tf_pub" required="true" />
+
+  <node pkg="tf" type="static_transform_publisher" name="tf_base2lidar" args="1 0 2 0 0 0 1 f_base f_lidar 100" required="true" />
+  <node pkg="tf" type="static_transform_publisher" name="tf_world2path" args="3 0 0 0 0 0 1 world f_path 100" required="true" />
+
+</launch>
