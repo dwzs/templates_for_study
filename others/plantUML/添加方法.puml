@@ -1,0 +1,28 @@
+' 声明字段(对象属性）或者方法，你可以使用 后接字段名或方法名。
+@startuml
+Object <|-- ArrayList
+Object : equals()
+ArrayList : Object[] elementData
+ArrayList : size()
+@enduml
+
+
+' 使用{} 把字段或者方法括起来 
+@startuml
+class Dummy {
+String data
+void methods()
+}
+class Flight {
+flightNumber : Integer
+departureTime : Date
+}
+@enduml
+
+' （显式地）使用 {field} 和 {method} 修饰符来覆盖解析器的对于字段和方法的默认行为
+@startuml
+class Dummy {
+{field} A field (despite parentheses)
+{method} Some method
+}
+@enduml

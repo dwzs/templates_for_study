@@ -1,0 +1,21 @@
+@startuml
+class Dummy {
+-field1
+#field2
+~method1()
++method2()
+}
+@enduml
+
+
+
+' 你可以采用以下命令停用这些特性 skinparam classAttributeIconSize 0 ： 
+@startuml
+skinparam classAttributeIconSize 0
+class Dummy {
+-field1
+#field2
+~method1()
++method2()
+}
+@enduml
