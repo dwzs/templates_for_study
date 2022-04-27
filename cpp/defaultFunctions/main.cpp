@@ -1,5 +1,13 @@
 //////////////////////////////////////*************************************/////////////////////////////////////////////////////////
-/////////////////////重载了String的部分函数
+////五种默认创建的函数：
+//      默认构造函数； 啥也不干
+//      拷贝（复制）构造函数； 分配内存，成员拷贝；遇到指针成员时为深拷贝
+//      默认析构函数；
+//      赋值函数（赋值运算符）； 对对象成员内容先擦除，再重新赋值；遇到指针成员时为浅拷贝
+//      取值函数；暂不考虑
+// 复制构造函数与赋值操作的区别
+//      1.拷贝构造函数是一个对象初始化一块内存区域，这块内存就是新对象的内存区，而赋值函数是对于一个已经被初始化的对象来进行赋值操作。
+//      2.对对象内部指针成员的处理
 //////////////////////////////////////*************************************/////////////////////////////////////////////////////////
 
 #include <iostream>
@@ -7,70 +15,75 @@
 #include <string.h>
 using namespace std;
 
-class String
+class IntClass
 {
 public:
-    String() { cout << "default constructor " << endl; } //默认构造函数；当没定义构造函数时会自动生成，这里显示声明了默认构造函数。
-    String(const char *str = NULL);                      //普通构造函数
-    String(const String &other);                         //拷贝构造函数
-
-    String &operator=(const String &other); //赋值函数
-    ~String(void);                          //析构函数;只有一个，不能被重载，不带参数
-
-private:
-    char *m_string; //保存字符串
+    int i_;
 };
 
-String::~String(void) //析构函数
+class MyClass
 {
-    cout << "Destructor: " << m_string << endl;
-    if (m_string != NULL) //不为空，就释放内存
-    {
-        delete[] m_string;
-        m_string = NULL;
-    }
-}
+public:
+    MyClass(const int i); //普通构造函数,由于存在构造函数，故不会自动生成默认构造函数
+    // ~MyClass(void); //析构函数；假如自定义了析构函数，则不会自动生成默认析构函数；对于指针成员，默认构造函数不会释放堆中的空间；
 
-String::String(const char *str) //普通构造函数
+    int i_;   //普通变量，栈上分配内存
+    int *ip_; //指针变量；指针本身在栈上分配内存，但指针指向的内存块可在堆上分配内存，当指针指向堆上空间时，默认复制构造和默认赋值操作对于指针对象都是浅拷贝
+};
+
+// MyClass::~MyClass(void) //析构函数；假如使用复制构造函数生成对象或使用拷贝操作拷贝对象（假如都是浅拷贝），析构时会造成指针对象指向的堆上内存被释放多次。
+// {
+//     cout << "Destructor: " << i_ << endl;
+//     if (ip_ != NULL) //不为空，就释放内存
+//     {
+//         delete ip_;
+//         ip_ = NULL;
+//     }
+// }
+
+MyClass::MyClass(const int i) //普通构造函数
 {
-
-    m_string = new char[strlen(str) + 1]; //分配空间
-    strcpy(m_string, str);
-
-    cout << "construct: " << m_string << endl;
-}
-
-String::String(const String &other) //拷贝构造函数；这里是深拷贝，编译器自动生成的拷贝构造函数为浅拷贝；
-{
-    m_string = new char[strlen(other.m_string) + 1]; //分配空间并拷贝
-    strcpy(m_string, other.m_string);
-    cout << "copy construct: " << m_string << endl;
-}
-
-String &String::operator=(const String &other) //赋值函数；这里是深拷贝，编译器自动生成赋值操作为浅拷贝；
-{
-    if (this == &other) //如果对象和other是用一个对象，直接返回本身
-    {
-        return *this;
-    }
-    delete[] m_string; //先释放原来的内存
-    m_string = new char[strlen(other.m_string) + 1];
-    strcpy(m_string, other.m_string);
-
-    cout << "operator = funtion: " << m_string << endl;
-
-    return *this;
+    i_ = i;
+    ip_ = new int(i);
+    cout << "construct: " << i << endl;
 }
 
 int main()
 {
-    String a();        //调用默认构造函数 ; 注意与 String a 存在区别，不添加括号时可能会调用 String(const char *str = NULL)，因为存在默认值
-    String b("hello"); //调用普通构造函数
-    String c(b);       //调用拷贝构造函数
-    String d = b;      //调用拷贝构造函数
+    // MyClass c1;    //报错；有其他构造函数，故不生成默认构造函数，
+    MyClass cc(5);   //普通构造
+    MyClass c2(cc);  //拷贝（复制）构造
+    MyClass c3 = cc; //赋值操作
 
-    c = b; //调用赋值函数
+    //复制构造和赋值操作
+    cout << "c2.i_: " << c2.i_ << ",  "
+         << "c2.ip_: " << *c2.ip_ << endl;
+    cout << "c3.i_: " << c3.i_ << ",  "
+         << "c3.ip_: " << *c3.ip_ << endl
+         << endl;
 
-    cout << endl;
+    //复制构造遇到指针对象时为浅拷贝（其实对指针对象的操作与对普通对象的操作一样，都是把栈上的内容做复制，没有对指针指向的堆上的内容做复制）
+    c2.i_ = 4;
+    *c2.ip_ = 4; //c2拷贝复制cc， 因此修改指针成员应该不会影响到cc的指针成员值？？？？？？？？？？
+    cout << "c2.i_: " << c2.i_ << ",  "
+         << "c2.ip_: " << *c2.ip_ << endl;
+    cout << "cc.i_: " << cc.i_ << ",  "
+         << "cc.ip_: " << *cc.ip_ << endl
+         << endl;
+
+    //赋值操作遇到指针对象时为浅拷贝
+    c3.i_ = 1;
+    *c3.ip_ = 1; //c2赋值复制cc， 因此修改指针成员会影响到cc的指针成员值
+    cout << "c3.i_: " << c3.i_ << ",  "
+         << "c3.ip_: " << *c3.ip_ << endl;
+    cout << "cc.i_: " << cc.i_ << ",  "
+         << "cc.ip_: " << *cc.ip_ << endl
+         << endl;
+
+    //复制构造与赋值操作对应的指针对象指向同一块堆空间，但指针对象本身在栈空间有不同位置
+    cout << "cc.ip_: " << cc.ip_ << "  &cc.ip_: " << &cc.ip_ << endl;
+    cout << "c2.ip_: " << c3.ip_ << "  &c2.ip_: " << &c2.ip_ << endl;
+    cout << "c3.ip_: " << c3.ip_ << "  &c3.ip_: " << &c3.ip_ << endl;
+
     return 0;
 }
