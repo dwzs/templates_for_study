@@ -1,0 +1,1 @@
+1.编译报链接错误： 使用 g++ -pthread lock_guard.cpp

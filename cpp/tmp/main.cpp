@@ -7,7 +7,21 @@ class MyClass
 public:
     MyClass()
     {
-        cout << "MyClass!" << endl;
+        cout << "MyClass! " << endl;
+    }
+
+    // MyClass(int i)
+    // {
+    //     num_ = i;
+    //     i++;
+    //     cout << "MyClass1 " << num_ << endl;
+    // }
+
+    MyClass(int &i)
+    {
+        num_ = i;
+        i++;
+        cout << "MyClass2 " << num_ << endl;
     }
 
     int num_;
@@ -18,23 +32,12 @@ public:
 
 int main()
 {
-    int i = 541;
-    int i1 = 451;
+    int i = 1;
+    MyClass m1(1);
+    // MyClass m2(i);
+    // MyClass m3(1);
 
-    const int *cpi = &i;
-    int *const pci = &i;
-
-    // cout << cpi << "  " << *cpi << endl;
-    cout << pci << "  " << *pci << endl;
-
-    // cpi = &i1;
-    // *cpi = 5;
-
-    // pci = &i1;
-    *pci = i1;
-
-    // cout << cpi << "  " << *cpi << endl;
-    cout << pci << "  " << *pci << endl;
+    cout << i << endl;
 
     return 0;
 }
