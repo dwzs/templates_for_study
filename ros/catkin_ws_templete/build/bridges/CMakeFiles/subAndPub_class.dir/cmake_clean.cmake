@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/subAndPub_class.dir/src/subAndPub_class.cpp.o"
-  "/home/wsy/templates_for_study/ros/catkin_ws_templete/devel/lib/bridges/subAndPub_class.pdb"
   "/home/wsy/templates_for_study/ros/catkin_ws_templete/devel/lib/bridges/subAndPub_class"
+  "/home/wsy/templates_for_study/ros/catkin_ws_templete/devel/lib/bridges/subAndPub_class.pdb"
+  "CMakeFiles/subAndPub_class.dir/src/subAndPub_class.cpp.o"
+  "CMakeFiles/subAndPub_class.dir/src/subAndPub_class.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

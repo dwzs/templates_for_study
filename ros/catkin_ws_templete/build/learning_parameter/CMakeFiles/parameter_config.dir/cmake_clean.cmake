@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/parameter_config.dir/src/parameter_config.cpp.o"
-  "/home/wsy/templates_for_study/ros/catkin_ws_templete/devel/lib/learning_parameter/parameter_config.pdb"
   "/home/wsy/templates_for_study/ros/catkin_ws_templete/devel/lib/learning_parameter/parameter_config"
+  "/home/wsy/templates_for_study/ros/catkin_ws_templete/devel/lib/learning_parameter/parameter_config.pdb"
+  "CMakeFiles/parameter_config.dir/src/parameter_config.cpp.o"
+  "CMakeFiles/parameter_config.dir/src/parameter_config.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

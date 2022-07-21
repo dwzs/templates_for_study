@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/learning_service_generate_messages_lisp"
   "/home/wsy/templates_for_study/ros/catkin_ws_templete/devel/share/common-lisp/ros/learning_service/srv/Person.lisp"
+  "CMakeFiles/learning_service_generate_messages_lisp"
 )
 
 # Per-language clean rules from dependency scanning.

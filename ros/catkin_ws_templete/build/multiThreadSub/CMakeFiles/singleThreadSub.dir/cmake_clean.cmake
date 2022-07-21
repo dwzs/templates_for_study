@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/singleThreadSub.dir/src/singleThreadSub.cpp.o"
-  "/home/wsy/templates_for_study/ros/catkin_ws_templete/devel/lib/multiThreadSub/singleThreadSub.pdb"
   "/home/wsy/templates_for_study/ros/catkin_ws_templete/devel/lib/multiThreadSub/singleThreadSub"
+  "/home/wsy/templates_for_study/ros/catkin_ws_templete/devel/lib/multiThreadSub/singleThreadSub.pdb"
+  "CMakeFiles/singleThreadSub.dir/src/singleThreadSub.cpp.o"
+  "CMakeFiles/singleThreadSub.dir/src/singleThreadSub.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

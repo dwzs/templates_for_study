@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/learning_service_generate_messages_nodejs"
   "/home/wsy/templates_for_study/ros/catkin_ws_templete/devel/share/gennodejs/ros/learning_service/srv/Person.js"
+  "CMakeFiles/learning_service_generate_messages_nodejs"
 )
 
 # Per-language clean rules from dependency scanning.
