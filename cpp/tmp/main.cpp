@@ -78,47 +78,27 @@ int D::is_ = 2;
 
 int main(void)
 {
-    int i = 1;
-    static int i_s = 2;
+    int a = 99;
 
-    int i1 = 1;
-    static int i_s1 = 2;
+    int b = 2;
 
-    int *i_h = new int();
+    float c = a / b;
 
-    cout << &i << endl;
-    cout << &i_s << endl;
+    cout << c; /* output will be 49.0 as 99/ 2 will be implicitly converted to 49 and 49 in float is 49.0 */
 
-    cout << endl;
-    cout << &i1 << endl;
-    cout << &i_s1 << endl;
+    float d = static_cast<float>(a / b);
 
-    cout << endl;
-    cout << i_h << endl;
-    cout << &i_h << endl;
+    cout << d;
 
-    // //使用new关键字，在堆区开辟一个int数组
-    // char *arr = new char[5]{1, 2, 3, 4, 5};
-    // //并不是计算数组arr所占用的内存空间大小，而是计算指针所占内存大小，32位系统指针占4字节，64位系统指针占8字节
-    // cout << sizeof(arr) << endl;
-    // //解指针，因为arr指针指向的时数组的首元素，所以实际计算的是int类型的数据所占用内存空间，int类型占4字节
-    // cout << sizeof(*arr) << endl;
+    /* output will be again 49.0 as the a/b will give us the answer 49( int / int=int) and 49 in float is 49.0 */
 
-    // vector<int> v1;
-    // vector<int> v2;
-    // v1.push_back(1);
-    // v1.push_back(2);
-    // v1.push_back(2);
-    // v1.push_back(2);
-    // v1.push_back(2);
-    // cout << &v1 << endl;
-    // cout << &v1[0] << endl;
-    // cout << sizeof(v1) << endl;
-    // cout << sizeof(v1[0]) << endl;
+    float e = static_cast<float>(a) / b;
 
-    // cout << endl;
-    // cout << &v2 << endl;
-    // cout << sizeof(v2) << endl;
+    cout << e;
+
+    /* output will be 49.5 as static cast will convert int a into float data type ie 99 willbe convert it into 99.0 and float / int will give us the answer in float data type and will get stord in the float typed variable e */
+
+    // getch();
 }
 
 // 常指针：指针指向的内容为常量

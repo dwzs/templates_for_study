@@ -1,0 +1,29 @@
+{
+    "name": "雄霸天下",
+    "no_camp": 0,
+    "save_state": 1,
+    "state_locked": 1,
+    "default_state": 3,
+    "recover_state": 1,
+    "relive": {
+        "type": "11",
+        "relive_item": 200000016,
+        "state": [
+            100
+        ],
+        "camp_relive": [
+            {
+                "posX": 4615,
+                "posY": 2245
+            },
+            {
+                "posX": 2910,
+                "posY": 6378
+            },
+            {
+                "posX": 813,
+                "posY": 3589
+            }
+        ]
+    }
+}
